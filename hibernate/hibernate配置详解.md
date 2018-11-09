@@ -43,7 +43,7 @@
 </hibernate-configuration> 
 ```
 #### 映射文件
-···
+```
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC 
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
@@ -130,4 +130,4 @@
          
     </class>    
 </hibernate-mapping>
-··· 
+```
