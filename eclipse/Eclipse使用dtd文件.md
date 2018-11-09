@@ -4,9 +4,8 @@
 1. 下载[hibernate-configuration-3.0](http://hibernate.org/dtd/hibernate-mapping-3.0.dtd)
 2. 在Eclipse中引入dtd文件
     * Windows->Preferences打开下面窗口，并选择到下图显示界面
-    ![preferences](https://github.com/peoffice/my_java_way/tree/master/eclipse/images/preference.png)
+    ![](https://github.com/peoffice/my_java_way/blob/master/eclipse/images/preference.png)
     * 点击Add按钮，弹出下图显示界面，并按图中所示填写相关内容
-    ![add] (https://github.com/peoffice/my_java_way/tree/master/eclipse/images/add.png)
+    * ![](https://github.com/peoffice/my_java_way/blob/master/eclipse/images/add.png)
 3. 使用情况
-
-![using](https://github.com/peoffice/my_java_way/tree/master/eclipse/images/using.png)
+![](https://github.com/peoffice/my_java_way/blob/master/eclipse/images/using.png)
