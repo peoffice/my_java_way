@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="mark.workspace.heberate_toturial.Payment" table="payments" catalog="classicmodels">
+		<id name="checkNumber" type="java.lang.String">
+			<column name="checkNumber" />
+			<generator class="assigned" />
+		</id>
+
+		<property name="customerNumber" type="java.lang.Integer">
+			<column name="customerNumber"/>
+		</property>
+		<property name="paymentDate" type="java.util.Date">
+			<column name="paymentDate"/>
+		</property>
+		<property name="amount" type="java.math.BigDecimal">
+			<column name="amount"/>
+		</property>
+	</class>
+</hibernate-mapping>

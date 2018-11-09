@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="mark.workspace.heberate_toturial.Customer" table="customers" catalog="classicmodels">
+		<id name="customerNumber" type="java.lang.Integer">
+			<column name="customerNumber" />
+		</id>
+
+		<property name="customerName" type="java.lang.String">
+			<column name="customerName"/>
+		</property>
+		<property name="contactLastName" type="java.lang.String">
+			<column name="contactLastName"/>
+		</property>
+		<property name="contactFirstName" type="java.lang.String">
+			<column name="contactFirstName"/>
+		</property>
+		<property name="phone" type="java.lang.String">
+			<column name="phone"/>
+		</property>
+		<property name="addressLine1" type="java.lang.String">
+			<column name="addressLine1"/>
+		</property>
+		<property name="addressLine2" type="java.lang.String">
+			<column name="addressLine2"/>
+		</property>
+		<property name="city" type="java.lang.String">
+			<column name="city"/>
+		</property>
+		<property name="state" type="java.lang.String">
+			<column name="state"/>
+		</property>
+		<property name="postalCode" type="java.lang.String">
+			<column name="postalCode"/>
+		</property>
+		<property name="country" type="java.lang.String">
+			<column name="country"/>
+		</property>
+		<property name="salesRepEmployeeNumber" type="java.lang.Integer">
+			<column name="salesRepEmployeeNumber"/>
+		</property>
+			<property name="creditLimit" type="java.math.BigDecimal">
+			<column name="creditLimit"/>
+		</property>
+	</class>
+</hibernate-mapping>

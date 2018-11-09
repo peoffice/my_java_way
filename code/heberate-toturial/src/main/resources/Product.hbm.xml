@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="mark.workspace.heberate_toturial.Product" table="products" catalog="classicmodels">
+		<id name="productCode" type="java.lang.String">
+			<column name="productCode" />
+		</id>
+
+		<property name="productName" type="java.lang.String">
+			<column name="productName"/>
+		</property>
+		<property name="productLine" type="java.lang.String">
+			<column name="productLine"/>
+		</property>
+		<property name="productScale" type="java.lang.String">
+			<column name="productScale"/>
+		</property>
+		<property name="productVendor" type="java.lang.String">
+			<column name="productVendor"/>
+		</property>
+		<property name="productDescription" type="java.lang.String">
+			<column name="productDescription"/>
+		</property>
+		<property name="quantityInStock" type="java.lang.Integer">
+			<column name="quantityInStock"/>
+		</property>
+		<property name="buyPrice" type="java.math.BigDecimal">
+			<column name="buyPrice"/>
+		</property>
+		<property name="MSRP" type="java.math.BigDecimal">
+			<column name="MSRP"/>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="mark.workspace.heberate_toturial.OrderDetail" table="orderdetails" catalog="classicmodels">
+		<id name="orderNumber" type="java.lang.Integer">
+			<column name="orderNumber" />
+		</id>
+
+		<property name="productCode" type="java.lang.String">
+			<column name="productCode"/>
+		</property>
+		<property name="quantityOrdered" type="java.lang.Integer">
+			<column name="quantityOrdered"/>
+		</property>
+		<property name="priceEach" type="java.math.BigDecimal">
+			<column name="priceEach"/>
+		</property>
+		<property name="orderLineNumber" type="java.lang.Integer">
+			<column name="orderLineNumber"/>
+		</property>
+	</class>
+</hibernate-mapping>
