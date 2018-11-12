@@ -7,10 +7,13 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil extends Object{
 	private static SessionFactory sessionFactory;
+	private static MyInterceptor interceptor;
 	static
 	{
 		try{
 			Configuration configuration=new Configuration().configure();
+			interceptor = new MyInterceptor();
+			configuration.setInterceptor(interceptor);
 			sessionFactory = configuration.buildSessionFactory();
 	  	}catch (Throwable ex){
 	            throw new ExceptionInInitializerError(ex);
