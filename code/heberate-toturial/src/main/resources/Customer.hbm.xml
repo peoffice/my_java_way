@@ -45,4 +45,9 @@
 			<column name="creditLimit"/>
 		</property>
 	</class>
+	<query name="queryHQL">
+	 <![CDATA[  
+             from Customer 
+        ]]>  
+	</query>
 </hibernate-mapping>

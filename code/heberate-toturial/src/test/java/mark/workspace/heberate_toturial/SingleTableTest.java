@@ -1,7 +1,11 @@
 package mark.workspace.heberate_toturial;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 
 import junit.framework.TestCase;
 
@@ -63,8 +67,30 @@ public class SingleTableTest extends TestCase {
             tx.rollback();
             assert(false);
         }finally{
+        	tx.commit();
             HibernateUtil.closeSession();
         }
-        assert(true);
 	}
+    public void testHqlinConfig(){
+		Session session = HibernateUtil.getSession();
+        Transaction tx = session.beginTransaction();
+        try{
+        	Query query = session.getNamedQuery("queryHQL");
+        	assert(query!=null);
+        	List<Customer> customers = query.list();
+        	assert(customers.size()>0);
+        	if(customers.size()>0){
+        		for(Customer customer:customers){
+        			System.out.println(customer.getCity());
+        		}
+        	}
+        }catch(Exception e){
+            e.printStackTrace();
+            tx.rollback();
+            assert(false);
+        }finally{
+        	tx.commit();
+            HibernateUtil.closeSession();
+        }
+    }
 }
