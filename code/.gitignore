@@ -5,3 +5,4 @@ erlide.log.lck
 /.sonarlint
 /RemoteSystemsTempFiles
 /.recommenders
+.DS_Store
