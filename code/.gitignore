@@ -6,3 +6,7 @@ erlide.log.lck
 /RemoteSystemsTempFiles
 /.recommenders
 .DS_Store
+/.metadata
+/.recommenders
+/.idea
+mongodb-tutorial.iml
