@@ -4,11 +4,13 @@ package mark.workspace.mongodb_tutorial.data;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Activity {
+public class Activity extends ManagedObject{
+
 	private Map<String, String> bpvVariables;
 	private String templateId;
 	private String status;
 	public Activity(){
+		super();
 		this.bpvVariables = new HashMap<>();
 		this.templateId = "templateId";
 		this.status = DomainConstant.ActivityStatusReady;
