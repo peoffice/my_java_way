@@ -137,10 +137,10 @@ public class MongoUtil {
 		}
 		return ret;
 	}
-	private <T extends ManagedObject> List<T> queryObject(List<String> ids,String colName,Class<T> clazz){
+	private <T extends ManagedObject> List<T> queryObject(List<String> ids, String colName, Class<T> clazz){
 		List<T> objects = new ArrayList<>();
 		if(ids.size()>0){
-			if (ConnectDB()) {
+		    if (ConnectDB()) {
 				MongoCollection<Document> col = mongodb.getCollection(colName);
 				Bson filter = Filters.in(MongoDBConstant.FieldId, ids);
 				FindIterable<Document> iter = col.find(filter);
@@ -152,7 +152,7 @@ public class MongoUtil {
 		}
 		return objects;
 	}
-	private <T extends ManagedObject> List<T> queryProjectbyDataObj(List<String> dataObjs,String colName,Class<T> clazz){
+	private <T extends ManagedObject> List<T> queryObjectbyDataObj(List<String> dataObjs,String colName,Class<T> clazz){
 		List<T> objects = new ArrayList<>();
 		if(dataObjs!=null&&dataObjs.size()>0){
 			MongoCollection<Document> col = mongodb.getCollection(colName);
@@ -183,7 +183,7 @@ public class MongoUtil {
 	}
 
 	public List<Project> queryProjectbyDataObj(List<String> dataObjs){
-		return queryProjectbyDataObj(dataObjs,MongoDBConstant.ColProject,Project.class);
+		return queryObjectbyDataObj(dataObjs,MongoDBConstant.ColProject,Project.class);
 	}
 
 	public int addActivity(Activity activity) {
@@ -200,6 +200,43 @@ public class MongoUtil {
 		return queryObject(ids,MongoDBConstant.ColActivity,Activity.class);
 	}
 	public List<Activity> queryActivitybyDataObj(List<String> dataObjs){
-		return queryProjectbyDataObj(dataObjs,MongoDBConstant.ColActivity,Activity.class);
+		return queryObjectbyDataObj(dataObjs,MongoDBConstant.ColActivity,Activity.class);
 	}
+
+	public int addStep(Step step){
+		return addObject(step,MongoDBConstant.ColStep);
+	}
+	public int removeStep(String id){
+		return removeObject(id,MongoDBConstant.ColStep);
+	}
+	public int updateStep(String id,UpdateSection section){
+		return updateObject(id,section,MongoDBConstant.ColStep);
+	}
+	public List<Step> queryStep(List<String> ids){
+		return queryObject(ids,MongoDBConstant.ColStep,Step.class);
+	}
+	public List<Step> queryStepbyDataObj(List<String> dataObjs){
+		return queryObjectbyDataObj(dataObjs,MongoDBConstant.ColStep,Step.class);
+	}
+
+	public int addFunction(Function function){
+		return addObject(function,MongoDBConstant.ColFunction);
+	}
+
+	public int removeFunction(String id){
+		return removeObject(id,MongoDBConstant.ColFunction);
+	}
+
+	public int updateFunction(String id,UpdateSection section){
+		return updateObject(id,section,MongoDBConstant.ColFunction);
+	}
+
+	public List<Function> queryFunction(List<String> ids){
+		return queryObject(ids,MongoDBConstant.ColFunction,Function.class);
+	}
+
+	public List<Function> queryFunctionbyDataObj(List<String> dataObjs){
+		return queryObjectbyDataObj(dataObjs,MongoDBConstant.ColFunction,Function.class);
+	}
+
 }
