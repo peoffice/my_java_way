@@ -9,4 +9,5 @@ erlide.log.lck
 /.metadata
 /.recommenders
 /.idea
+/.*
 mongodb-tutorial.iml
