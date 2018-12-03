@@ -11,7 +11,7 @@
   * Straightforward to test - The developers wrote end-to-end tests that launched the application, invoked the REST API, and tested the UI with Selenium.
   * Straightforward to deploy - All a developer had to do was copy the WAR file to a server that had Tomcat installed.
   * Easy to scale - FTGO ran multiple instances of the application behand a load blancer.
-  * ![architecture](???????)
+  * ![architecture](https://github.com/peoffice/my_java_way/blob/master/架构/png/ftgo_architecture.png)
 
 * The slow march toward monolithic hell
   * development is slow
