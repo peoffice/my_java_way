@@ -19,7 +19,7 @@
   * scaling is difficult
   * delivering a reliable monolith is chanllenging
   * locked into increasingly obsolete technology stack
-  * ![slow march](www.baidu.com)
+  * ![slow march](https://github.com/peoffice/my_java_way/blob/master/架构/png/ftgo_slow_march.png)
 
 * What you'll learn in this book
   * The essential characteristics of the microservice architecture, its benefits and drawbacks, and when to use it
