@@ -32,11 +32,11 @@
   * Scale cube and microservices
     > ![cube](https://github.com/peoffice/my_java_way/blob/master/架构/png/cube.png)
     * x-axis scaling load balances requessts across multiple instances
-      > ![x-axis]((https://github.com/peoffice/my_java_way/blob/master/架构/png/x-axis.png)
+      > ![x-axis](https://github.com/peoffice/my_java_way/blob/master/架构/png/x-axis.png)
     * z-axis scaling routes requests based on an attribute of the request
-      > ![z-axis]((https://github.com/peoffice/my_java_way/blob/master/架构/png/z-axis.png)
+      > ![z-axis](https://github.com/peoffice/my_java_way/blob/master/架构/png/z-axis.png)
     * y-axis scaling functionally decomposes an application into services
-      > ![y-axis]((https://github.com/peoffice/my_java_way/blob/master/架构/png/y-axis.png)
+      > ![y-axis](https://github.com/peoffice/my_java_way/blob/master/架构/png/y-axis.png)
   * Microservices as a form of modularity
   * Each service has its own database
   * The FTGO microservice architecture
