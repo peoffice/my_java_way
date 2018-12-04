@@ -80,6 +80,65 @@
 
 
 #### 2. Decomposition strategies
+* What is the microservice architecture exactly?
+  * Software architecture is its high-level structure, which consists of constituent parts and the dependencies between those parts.
+  * A definition of software architecture
+    > The software architecture of a computing system is the set of structures needed to reason about the system, which comprise software elements, relations among them, and properties of both.
+    * Decomoposition is important for a couple of reasons
+      * It facilitates the division of labor and knowledge.
+      * It defines how the software elements interact.
+  * The 4+1 view model of software architecture
+    > ![4_1_view_model.png](https://github.com/peoffice/my_java_way/blob/master/架构/png/4_1_view_model.png)
+      * Logical view - The software elements that are created by developers. In object-oriented languages, these elements are classes and packages. The realtions between them are the relationships between classes and packages, including inheritance, associations, and depends-on.
+      * Implementatin view - The output of the build system. This view consists of modules, which represent packaged code, and components which are executable or deployable units consisting of one or more modules. In Java, a module is a JAR file, and a component is typically a WAR file or an executable JAR file. The relations between them include dependency relationships between modules and composition relationships between components and modules
+      * Process view - The components at runtime. Each element is a process, and the relations between processes represent interprocess communication.
+      * Deployment view - How the processes are mapped to machines. The elemetns in this view consist of (physical or virtual) machines and the processes. The relations between machines represent networking. This view also describes the relationship between processes and machines.
+  * Why architecture matters(tow categories of requirements)
+    * functional requirements
+    * quality of service requirements
+  * Overview of architectural styles
+    > An architectural style, then, defines a family of such systems in terms of a pattern of structural organization. More specifically, an architectural style determines the vacabulary of components and connectors that can be used in instance of that style, together with a set of constrains on how they can be combined.
+    * The layered architectural style
+    * The hexagonal architectural style
+    * The microservice architecture
+      * What is a service?
+        > A service is a standalone, independently deployable software component that implements some useful functionality.
+      * What is loose coupling?
+        > An important characteristic of the microservice architecture is that the services are loosely coupled. All interaction with a service happens via its API, which encapsulates its implementation details.
+      * The role of shared libraries
+        > Developers often package functionality in a library so that it can be reused by multiple applications without duplicating code. But you must consider that you don't increase coupling between services.
+      * The size of a service is mostly unimportant
+        > microservice dont' mean it is small or micro, it just means that your service is standalone.
+* Defining an application's microservice architecture
+  > ![define_ma.png](https://github.com/peoffice/my_java_way/blob/master/架构/png/define_ma.png)
+  * Identifying the system operations
+    > ![defining_dd.png](https://github.com/peoffice/my_java_way/blob/master/架构/png/defining_dd.png)
+  * Defining services by applying the decompose by business capability pattern
+    > [Pattern:Decompose by business capability](http://microservices.io/patterns/decomposition/decompose-by-business-capability.html)
+    > ![decompose_services.png](https://github.com/peoffice/my_java_way/blob/master/架构/png/decompose_services.png)
+  * Defining services by applying the decompose by sub-domain pattern
+    > [Pattern:Decompose by subdomain](http://microservices.io/patterns/decomposition/decompose-by-subdomain.html)
+    > ![sub_domain.png](https://github.com/peoffice/my_java_way/blob/master/架构/png/sub_domain.png)
+  * Decomposition guidelines
+    * Single responsibility principle
+      > A class should have only one reason to change.
+    * Common Closure Principle
+      > The classes in a package should be closed together against the same kinds of changes. A change that affects a package affects all the classes in that package.
+  * Obstacles to decomposing an application into services
+    * Network latency
+    * Reduced availability due to synchronous communication
+    * Maintaining data consistency across services
+    * Obtaining a consistent view of the data
+    * Good classes preventing decomposition
+* Summary
+  * Architecture determines your application's -ilities, including maintainability, testability, and deployability, which directly impact development velocity.
+  * The microservice architecture is an architecture style that gives an application high maintainability, testability, and deployability.
+  * Services in a microservice architecture are organized around business concerns business capabbilities or subdomains - rather than technical concerns.
+  * There are two patterns for decomposition:
+    * Decompose by business capability, which has its origins in business architecture
+    * Decompose by subdomain, based on concepts from domain-driven desing
+  * You can eliminate god classes, which cause tangled dependencies that prevent decomposition, by applying DDD and defining a seperate domain model for each service.
+
 
 #### 3. Interprocess communication in a microservice architecture
 
@@ -102,3 +161,41 @@
 #### 12. Deploying microservices
 
 #### 13 Refactoring to microservides
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
