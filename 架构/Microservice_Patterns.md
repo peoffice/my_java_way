@@ -248,10 +248,23 @@
 
 
 #### 4. Managing transactions with sagas
-
-
-
-
+* Transaction management in a microservice architecture
+  * The need for distributed transactions in a microservice arthitecture
+    > ![need_transaction](https://github.com/peoffice/my_java_way/blob/master/架构/png/need_transaction.png)
+  * The trouble with distributed transaction
+    > The traditional approach to maintaining data consistency across multiple services, databases, or message brokers is to use distributed transactions.
+  * Using the Saga pattern to maintain data consistency
+    > Sagas are mechanisms to maintain data consistency in microservice architecture without having to use distributed transactions. You define a saga for each system command that needs to update data in multiple srevices. A saga is a sequence of local transactions. Each local transaction updates data within a single service using the familiar ACID transaction frameworks and libraries mentioned earlier.
+    * [Pattern: Saga](http://microservices.io/patterns/data/saga.html)
+      > Maintain data consistency across services using a sequence of local transactions that are coordinated using asynchronous messaging.
+* Coordinating sagas
+  > A saga's implementation consists of logic that coordinates the steps of the saga. When a saga is initiated by system command, the coordination logic must select and tell the first saga participant to execute a local transaction. Once that transaction completes, the saga's sequencing coordination selects and invokes the next saga participant. This process continues until the saga has executed all the steps. If any local transaction fails, the saga must execute the compensating transactions in reverse order.
+  * There are a couple of different ways to structure a saga's coordination logic:
+    * Choreography - Distributed the decision making and sequencing among the saga partipants. They primarily communicate by exchanging events
+      > ![chor_ok](https://github.com/peoffice/my_java_way/blob/master/架构/png/chor_ok.png)
+      > ![chor_fail](https://github.com/peoffice/my_java_way/blob/master/架构/png/chor_fail.png)
+    * Orchestration - Centralize a saga's coordination logic in a saga orchestrator class. A saga orchestrator sends command messages to saga participants telling them which operations to perform.
+      > ![orch](https://github.com/peoffice/my_java_way/blob/master/架构/png/orch.png)
 #### 5. Designing business logic in a microservice arthitecture
 
 
