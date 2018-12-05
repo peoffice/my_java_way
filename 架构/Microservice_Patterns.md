@@ -265,14 +265,72 @@
       > ![chor_fail](https://github.com/peoffice/my_java_way/blob/master/架构/png/chor_fail.png)
     * Orchestration - Centralize a saga's coordination logic in a saga orchestrator class. A saga orchestrator sends command messages to saga participants telling them which operations to perform.
       > ![orch](https://github.com/peoffice/my_java_way/blob/master/架构/png/orch.png)
+
+
 #### 5. Designing business logic in a microservice arthitecture
-
-
+* Business logic organization patterns
+  * Designing business logic using the transaction script pattern
+    * Pattern: Transaction script
+      > Organize the business logic as a collection of procedural transaction scripts, one for each type of request.
+  * Designing business logic using the domain model pattern
+    * Pattern: Domain model
+      > Organize the  business logic as an object model consisting of classes that have state and behavior
+  * About Domain-driven design
+    * DDD, which is described in the book Domain-Driven Desing, is a refinemetn of DDD and is an approach for developing complex business logic.
+    * DDD also has some tacticl patterns that are building blocks for domain models. Each pattern is a role that a class plays in a domain model and defines the characteristics of the class
+* Desinging a domain model using the DDD aggregate pattern
+  > In traditional object-oriented design, a domain model is a collection of classes and relationships between classes. The classes are ususlly organized into packages.
+  > ![ddd_demo](https://github.com/peoffice/my_java_way/blob/master/架构/png/ddd_demo.png)
+  * The problem with fuzzy boundaries
+  * Aggregates have explicit boundaries
+    * Pattern: Aggregate
+      > Organize a domain model as a collection of aggregates, each of which is a graph of objects that can be treated as a unit.
+  * Aggregate rules
+    * reference only the aggregate root
+    * inter-aggregate referencces must use primary keys
+    * one transaction creates or updates one aggregate
+  * Aggregate granularity
+  * Desinging business logic with aggregates
+* Publishing domain events
+  * Merriam-Webster lists several definitions of the word event, including these:
+    * something that happens
+    * a noteworthy happening
+    * a social occasion or activity
+    * an adverse or damaging medical occurence, a heart attack or other cardiac event
+* Summary
+  * The procedural transaction script pattern is often a good way to implement simple business logic. But when implementing complex business logic you should consider using the object-oriented domain model pattern
+  * A good way to organize a service's business logic is as a collection of DDD aggregates. DDD aggregates are useful because they modularize the domain model, eliminate the possibility of object reference between services, and ensure that each ACID transaction is within a service
+  * An aggregate should publish domain events when it's created or updated. Domain events have a wide variety of uses.
 
 
 #### 6. Developing business logic with event sourcing
-
-
+* Developing business logic using event sourcing
+  > Event sourcing is a different way of structuring the business logic and persisting aggregates. I persist an aggregate as a ssequence of events. Each event represents a state change of the aggregate. An application recreates the current state of an aggregate by replaying the events.
+  * [Pattern: Event sourcing](http://microservices.io/patterns/data/event-sourcing.html)
+    > Persist an aggregate as a sequence of domain events that represent state changes
+  * Benefits of event sourcing
+    * reliably publishes domain events
+    * preserves the history of aggregates
+    * mostly avoids the o/r impedance mismatch problem
+    * provides developers with a time machine
+  * Drawbacks of event sourcing
+    * it has a different programming model that has a learning curve
+    * it has the complexity of a messaging-based application
+    * evolving events can be tricky
+    * deleting data is tricky
+    * querying the event store is challenging
+* Implementing an event store
+  > An application that uses event sourcing stores its events in an event sotre. An event store is a hybrid of a database and a message broker. It behaves as a database because it has an API for inserting and retrieving an aggregate's events by primary key. And it behaves as a message broker because it has an API for subscribing to events.
+* Using sagas and event sourcing together
+* Summary
+  * Event sourcing persists an aggregate as a sequence of events. Each event represents either the creation of the aggregate or a state change. An application recreates the state of an aggregate by replaying events. Event sourcing preserves the history of a domain object, provides an accurate audit log, and reliably publishes domain events
+  * Snapshots improve performance by reducing the number of evetns that must be replayed.
+  * Events are stored in an event store, a hybrid of a database and a message broker. When a service saves an event in an event store, it delivers the event to substribers.
+  * Eventuate Local is an open source event store based on MySql and Apach Kafka. Developers use the Eventuate client framework to write aggregates and event handlers.
+  * One challenge with using event sourcing is handling the evolution of events. An application potentially must handle multiple event versions when replaying evetns. A good solution is to use upcasting, which upgrades events to the latest version when they're loaded from the event store.
+  * Deleting data in an event sourcing application is triky. An application must use techniques such as encryption and pseudonymization in order to comply with regrlations like the European Union's GDPR that requires an application to erase an individual's data.
+  * Event sourcing is a simple way to implement choreography-based sagas. Services have event handlers that listen to the events published by event sourcing-based aggregates
+  * Event sourcing is a good way to implement saga orchestrators. As a result, you can write applications that exclusively use an event store.
 
 
 #### 7. Implementing queries in a microservice architecture
