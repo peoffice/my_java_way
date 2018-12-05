@@ -334,9 +334,35 @@
 
 
 #### 7. Implementing queries in a microservice architecture
-
-
-
+* Querying using the API composition pattern
+  * [Pattern: API composition](http://microservices.io/patterns/data/apicomposition.html)
+    > Implement a query that retrieves data from several services by querying each service via its API and combining the results.
+* Using the CQRS pattern
+  * [Pattern: Command query responsibility segregation](http://microservices.io/patterns/data/cqrs.html)
+    > Implement a query that needs data from several services by using events to maintain a read-only view that replicates data from the services.
+  * CQRS is a generalization of this kind of architecture. It maintains one or more view databases-not just text search databases - that implement one or omroe of the application's queries.
+  * Overview of CQRS
+    * CQRS separates commands from queries
+      > ![cqrs_ar](https://github.com/peoffice/my_java_way/blob/master/架构/png/cqrs_ar.png)
+    * Benefits of CQRS
+      * Enables the efficient implementation of queries in a microservice architecture
+      * Enables the efficient implementation of diverse queries
+      * Makes querying possible in an event sourcing-based application
+      * Improves separation of concerns
+    * Drawbacks of CQRS
+      * More complex architecture
+      * Dealing with the replication lag
+* Designing CQRS views
+  > [cqrs_desing](https://github.com/peoffice/my_java_way/blob/master/架构/png/cqrs_desing.png)
+* Summary
+  * Implementing queries that retrieve data from multiple services is challenging because each service’s data is private.
+  * There are two ways to implement these kinds of query: the API composition pattern and the Command query responsibility segregation (CQRS) pattern.
+  * The API composition pattern, which gathers data from multiple services, is the simplest way to implement queries and should be used whenever possible.
+  * A limitation of the API composition pattern is that some complex queries require inefficient in-memory joins of large datasets.
+  * The CQRS pattern, which implements queries using view databases, is more powerful but more complex to implement.
+  * A CQRS view module must handle concurrent updates as well as detect and discard duplicate events.
+  * CQRS improves separation of concerns by enabling a service to implement a query that returns data owned by a different service.
+  * Clients must handle the eventual consistency of CQRS views.
 
 #### 8. External API patterns
 
