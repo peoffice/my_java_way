@@ -353,7 +353,7 @@
       * More complex architecture
       * Dealing with the replication lag
 * Designing CQRS views
-  > [cqrs_desing](https://github.com/peoffice/my_java_way/blob/master/架构/png/cqrs_desing.png)
+  > ![cqrs_desing](https://github.com/peoffice/my_java_way/blob/master/架构/png/cqrs_desing.png)
 * Summary
   * Implementing queries that retrieve data from multiple services is challenging because each service’s data is private.
   * There are two ways to implement these kinds of query: the API composition pattern and the Command query responsibility segregation (CQRS) pattern.
