@@ -27,3 +27,8 @@
 * [mongodb分布式集群搭建手记](https://www.cnblogs.com/littleatp/p/8563273.html)
 * [Mongodb分片集群部署](https://www.jianshu.com/p/cb55bb333e2d)
 * [MongoDB 分片集群技术](https://www.cnblogs.com/clsn/p/8214345.html)
+* [mongodb 3.4 集群搭建：分片+副本集](https://www.cnblogs.com/ityouknow/p/7344005.html)
+* [搭建高可用mongodb集群（一）——配置mongodb](http://www.lanceyan.com/tech/mongodb/mongodb_cluster_1.html)
+* [搭建高可用mongodb集群（二）—— 副本集](http://www.lanceyan.com/tech/mongodb/mongodb_repset1.html)
+* [搭建高可用mongodb集群（三）—— 深入副本集内部机制](http://www.lanceyan.com/tech/mongodb_repset2.html)
+* [搭建高可用mongodb集群（四）—— 分片](http://www.lanceyan.com/category/tech/mongodb)
