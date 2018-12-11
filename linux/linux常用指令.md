@@ -37,3 +37,8 @@
   * [Linux系列教程（二十二）](https://www.cnblogs.com/ysocean/p/7821337.html)
   * [Linux系列教程（二十三）](https://www.cnblogs.com/ysocean/p/7828392.html)
   * [Linux系列教程（二十四）](https://www.cnblogs.com/ysocean/p/7828393.html)
+
+
+  #### Tips
+  * [linux下查看运行进程详细信息](https://www.cnblogs.com/ultranms/p/9353133.html)
+
