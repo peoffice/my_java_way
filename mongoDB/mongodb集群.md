@@ -1,5 +1,9 @@
 
 #### 内容
+ * Mongodb一共有三种集群搭建的方式
+   * Replica Set（副本集）
+   * Sharding（切片）
+   * Master-Slave（主从，目前已经不推荐使用）
 ##### MongoDB分片概括
 * 分片是在多台服务器上分布数据的方法，Mongodb使用分片来支持具有非常大的数据集和高吞吐量的操作的部署
 * 具有大数据集和高吞吐量应用程序的数据库系统，可以挑战单台服务器的容量
@@ -32,3 +36,5 @@
 * [搭建高可用mongodb集群（二）—— 副本集](http://www.lanceyan.com/tech/mongodb/mongodb_repset1.html)
 * [搭建高可用mongodb集群（三）—— 深入副本集内部机制](http://www.lanceyan.com/tech/mongodb_repset2.html)
 * [搭建高可用mongodb集群（四）—— 分片](http://www.lanceyan.com/category/tech/mongodb)
+* [MongoDB4.0搭建分布式集群](https://blog.csdn.net/kevinmcy/article/details/82712074)
+* []()
