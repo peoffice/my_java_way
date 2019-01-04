@@ -16,10 +16,14 @@ public class App
     	block.r5 = 500;
     	block.r6 = 600;
     	block.r7 = 700;
+    	int count = 0;
     	while(true){
     		AlgProxy.AlgDll.Instance.memory_leak(block);
     		Thread.sleep(500);
-    		System.out.println("runing...");
+    		System.out.println("runing..."+block.r1);
+    		count++;
+    		if(count>4)
+    			break;
     	}
     }
 }
